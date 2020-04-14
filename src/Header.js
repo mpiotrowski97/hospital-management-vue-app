@@ -24,8 +24,8 @@ export default class Header extends React.Component {
             <div className="flex relative inline-block float-right">
 
               <div className="relative text-sm">
-                <button id="userButton" className="flex items-center focus:outline-none mr-3">
-                  <span className="hidden md:inline-block" onClick={() => this.setState({isUserMenuOpen: !this.state.isUserMenuOpen})}>
+                <button id="userButton" className="flex items-center focus:outline-none mr-3" onClick={() => this.setState({isUserMenuOpen: !this.state.isUserMenuOpen})}>
+                  <span className="hidden md:inline-block">
                     Witaj użytkowniku
                   </span>
                   <svg className="pl-2 h-2" version="1.1" viewBox="0 0 129 129">
@@ -36,13 +36,13 @@ export default class Header extends React.Component {
                   </svg>
                 </button>
                 <div id="userMenu"
-                     className={`bg-white rounded shadow-md mt-2 absolute mt-6 top-0 right-0 min-w-full overflow-auto z-30 ${this.state.isUserMenuOpen || 'invisible'}`}>
+                     className={`bg-white rounded shadow-md mt-2 absolute mt-6 top-0 right-0 min-w-full overflow-auto z-30 ${this.state.isUserMenuOpen || 'invisible'}`}
+                      onClick={() => this.setState({isUserMenuOpen: false})}>
                   <ul className="list-reset">
                     <li>
-                      <a href="#"
-                         className="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline">
+                      <NavLink to={"/my-account"} className="px-4 py-2 block text-gray-900 hover:bg-gray-400 no-underline hover:no-underline">
                         My account
-                      </a>
+                      </NavLink>
                     </li>
                   </ul>
                 </div>
@@ -67,7 +67,7 @@ export default class Header extends React.Component {
                id="nav-content">
             <ul className="list-reset lg:flex flex-1 items-center px-4 md:px-0">
               <li className="mr-6 my-2 md:my-0">
-                <NavLink activeClassName="is-active" to={"/"} className="block py-1 md:py-3 pl-1 align-middle text-orange-600 no-underline hover:text-gray-900 border-b-2 border-orange-600 hover:border-orange-600">
+                <NavLink exact={true} activeClassName="text-orange-600 border-orange-600" to={"/"} className="block py-1 md:py-3 pl-1 align-middle no-underline hover:text-gray-900 border-b-2 hover:border-orange-600">
                   <i className="fas fa-home fa-fw mr-3 text-orange-600"/>
                   <span className="pb-1 md:pb-0 text-sm">Operacje</span>
                 </NavLink>
