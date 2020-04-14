@@ -1,9 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import Operations from "./views/Operations";
+import Operations from "./pages/Operations";
 import './assets/css/main.css';
 import Header from "./Header";
-import MyAccount from "./views/MyAccount";
+import MyAccount from "./pages/MyAccount";
 
 function App() {
   return (
