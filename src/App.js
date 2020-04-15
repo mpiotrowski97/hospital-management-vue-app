@@ -4,6 +4,7 @@ import Operations from "./pages/Operations";
 import './assets/css/main.css';
 import Header from "./Header";
 import MyAccount from "./pages/MyAccount";
+import Patients from "./pages/Patients";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
               </Route>
               <Route path={"/my-account"}>
                 <MyAccount/>
+              </Route>
+              <Route path={"/patients"}>
+                <Patients/>
               </Route>
             </Switch>
           </div>
