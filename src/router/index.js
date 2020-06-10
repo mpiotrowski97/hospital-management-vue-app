@@ -5,6 +5,8 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import UserList from "../pages/dashboard/users/UserList";
 import RouterPath from "../components/shared/RouterPath";
 import store from '../store';
+import UserPreview from "../pages/dashboard/users/UserPreview";
+import UserCreate from "../pages/dashboard/users/UserCreate";
 
 Vue.use(Router);
 
@@ -38,7 +40,18 @@ const router =  new Router({
           children: [
             {
               path: '',
+              name: 'dashboard.users.list',
               component: UserList
+            },
+            {
+              path: ':id/preview',
+              name: 'dashboard.users.preview',
+              component: UserPreview
+            },
+            {
+              path: 'create',
+              name: 'dashboard.users.create',
+              component: UserCreate
             }
           ]
         }

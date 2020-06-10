@@ -16,7 +16,7 @@ const authModule = {
       return state.isAuthenticated;
     },
     authorities(state) {
-      return state.authorities;
+      return state.authorities.map(authority => authority.authority);
     }
   },
   mutations: {

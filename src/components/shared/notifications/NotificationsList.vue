@@ -1,5 +1,5 @@
 <template>
-    <div class="py-5">
+    <div>
         <notification v-for="notification of notifications" :key="notification.id" :notification="notification"/>
     </div>
 </template>
