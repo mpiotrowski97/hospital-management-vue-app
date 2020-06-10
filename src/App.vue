@@ -6,9 +6,14 @@
 
 <script>
 
+import authService from "./services/auth.service";
+
 export default {
   name: 'App',
-  components: {}
+  components: {},
+  mounted() {
+    authService.check();
+  }
 }
 </script>
 

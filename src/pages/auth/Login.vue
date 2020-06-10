@@ -1,6 +1,7 @@
 <template>
     <main class="login-form">
         <div class="col-md-6">
+            <notifications-list/>
             <div class="card">
                 <div class="card-header">
                     Logowanie
@@ -53,8 +54,12 @@
 </template>
 
 <script>
+  import {LOGIN} from "../../store/actions.type";
+  import NotificationsList from "../../components/shared/notifications/NotificationsList";
+
   export default {
     name: "Login",
+    components: {NotificationsList},
     data() {
       return {
         email: null,
@@ -63,7 +68,8 @@
     },
     methods: {
       submitForm() {
-
+        this.$store.dispatch(LOGIN, {email: this.email, password: this.password})
+          .then(() => this.$router.push({name: 'dashboard'}));
       }
     }
   }
