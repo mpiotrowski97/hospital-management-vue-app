@@ -1,9 +1,8 @@
 <template>
     <div class="container">
-        <h3>Dodaj użytkownika</h3>
         <validation-observer v-slot="{invalid}">
             <form @submit.prevent="submitForm">
-                <validation-provider v-slot="{errors}" rules="required">
+                <validation-provider v-slot="{errors}" rules="required" v-if="!isProfile">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" class="form-control" name="email" id="email"
@@ -14,7 +13,7 @@
                     </div>
                 </validation-provider>
 
-                <validation-provider v-slot="{errors}" rules="required">
+                <validation-provider v-slot="{errors}" :rules="!user.id ? `required` : ''">
                     <div class="form-group">
                         <label for="password">Hasło</label>
                         <input type="password" class="form-control" name="password" id="password" ref="password"
@@ -25,7 +24,7 @@
                     </div>
                 </validation-provider>
 
-                <validation-provider v-slot="{errors}" rules="required">
+                <validation-provider v-slot="{errors}" :rules="!user.id ? `required` : ''">
                     <div class="form-group">
                         <label for="passwordConfirmation">Potwierdź hasło</label>
                         <input type="password" class="form-control" name="passwordConfirmation"
@@ -61,7 +60,7 @@
                     </div>
                 </validation-provider>
 
-                <validation-provider v-slot="{errors}" rules="required">
+                <validation-provider v-slot="{errors}" rules="required" v-if="!isProfile">
                     <div class="form-group">
                         <label for="roles">Role</label>
                         <input type="text" class="form-control" name="roles"
@@ -73,10 +72,11 @@
                     </div>
                 </validation-provider>
 
-                <validation-provider v-slot="{errors}" rules="required">
+                <validation-provider v-slot="{errors}" rules="required" v-if="!isProfile">
                     <div class="form-group">
                         <label for="type">Typ</label>
-                        <select class="form-control" :class="{'is-invalid':errors.length}" name="type" id="type" v-model="user.type">
+                        <select class="form-control" :class="{'is-invalid':errors.length}" name="type" id="type"
+                                v-model="user.type">
                             <option :value="null">Wybierz...</option>
                             <option value="patient">Pacjent</option>
                             <option value="doctor">Doktor</option>
@@ -87,12 +87,13 @@
                     </div>
                 </validation-provider>
 
-                <div class="form-group" v-if="'doctor' === user.type">
+                <div class="form-group" v-if="'doctor' === user.type && !isProfile">
                     <label for="specialization">Specjalizacja</label>
-                    <input type="text" name="specialization" id="specialization" class="form-control" v-model="user.specialization">
+                    <input type="text" name="specialization" id="specialization" class="form-control"
+                           v-model="user.specialization">
                 </div>
 
-                <div class="form-group" v-if="'patient' === user.type">
+                <div class="form-group" v-if="'patient' === user.type && !isProfile">
                     <label for="bornAt">Data urodzenia</label>
                     <datepicker v-model="user.bornAt" class="" id="bornAt" :language="pl" format="yyyy-MM-dd 00:00"/>
                 </div>
@@ -112,7 +113,7 @@
     name: "UserForm",
     data() {
       return {
-        pl: pl
+        pl: pl,
       }
     },
     methods: {
@@ -121,6 +122,10 @@
       }
     },
     props: {
+      isProfile: {
+        default: false,
+        type: Boolean
+      },
       user: {
         type: Object,
         default: () => ({

@@ -7,6 +7,9 @@ import RouterPath from "../components/shared/RouterPath";
 import store from '../store';
 import UserPreview from "../pages/dashboard/users/UserPreview";
 import UserCreate from "../pages/dashboard/users/UserCreate";
+import UserEdit from "../pages/dashboard/users/UserEdit";
+import Profile from "../pages/dashboard/Profile";
+import ProfileEdit from "../pages/dashboard/ProfileEdit";
 
 Vue.use(Router);
 
@@ -28,12 +31,28 @@ const router =  new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      redirect: '/dashboard/users',
+      redirect: '/dashboard/profile',
       component: Dashboard,
       beforeEnter(to, from, next) {
         store.getters['isAuthenticated'] ? next() : next({name: 'auth.login'})
       },
       children: [
+        {
+          path: 'profile',
+          component: RouterPath,
+          children: [
+            {
+              path: '',
+              name: 'dashboard.profile',
+              component: Profile
+            },
+            {
+              path: 'edit',
+              name: 'dashboard.profile.edit',
+              component: ProfileEdit
+            }
+          ]
+        },
         {
           path: 'users',
           component: RouterPath,
@@ -44,15 +63,20 @@ const router =  new Router({
               component: UserList
             },
             {
+              path: 'create',
+              name: 'dashboard.users.create',
+              component: UserCreate
+            },
+            {
               path: ':id/preview',
               name: 'dashboard.users.preview',
               component: UserPreview
             },
             {
-              path: 'create',
-              name: 'dashboard.users.create',
-              component: UserCreate
-            }
+              path: ':id/edit',
+              name: 'dashboard.users.edit',
+              component: UserEdit
+            },
           ]
         }
       ]

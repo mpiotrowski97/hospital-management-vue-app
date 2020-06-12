@@ -8,7 +8,13 @@
                     </router-link>
                 </div>
                 <div class="nav navbar-nav">
-                    <div class="nav-item nav-link">{{ user }}</div>
+                    <router-link class="nav-item nav-link" :to="{name: 'dashboard.profile'}">
+                        {{ user }}
+                    </router-link>
+                    <router-link class="nav-item nav-link" :to="{name: 'dashboard.profile.edit'}">
+                        Edycja profilu
+                    </router-link>
+
                     <a class="nav-link" style="cursor: pointer" @click="logout()">Wyloguj</a>
                 </div>
             </div>

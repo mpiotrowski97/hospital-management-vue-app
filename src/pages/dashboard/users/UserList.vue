@@ -7,7 +7,7 @@
                     Dodaj użytkownika
                 </router-link>
             </div>
-            <table class="table">
+            <table class="table table-responsive">
                 <thead>
                 <tr>
                     <th>#ID</th>
@@ -27,6 +27,10 @@
                         <router-link :to="{name: 'dashboard.users.preview', params: {id: user.id}}"
                                      class="btn btn-primary">
                             Podgląd
+                        </router-link>
+                        <router-link :to="{name: 'dashboard.users.edit', params: {id: user.id}}"
+                                     class="btn btn-warning">
+                            Edytuj
                         </router-link>
                         <button type="button" class="btn btn-danger" @click="deleteUser(user)">Usuń</button>
                     </td>

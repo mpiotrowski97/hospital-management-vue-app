@@ -1,7 +1,10 @@
 <template>
     <div>
         <spinner v-if="isLoading"/>
-        <user-form @formSubmitted="saveUser" v-else/>
+        <div v-else>
+            <h3>Dodaj użytkownika</h3>
+            <user-form @formSubmitted="saveUser"/>
+        </div>
     </div>
 </template>
 
