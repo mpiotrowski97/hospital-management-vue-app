@@ -21,6 +21,7 @@
             <td scope="row">Telefon</td>
             <td>{{ user.phoneNumber }}</td>
         </tr>
+        <slot/>
         </tbody>
     </table>
 </template>

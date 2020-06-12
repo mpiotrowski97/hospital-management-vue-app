@@ -10,6 +10,8 @@ import UserCreate from "../pages/dashboard/users/UserCreate";
 import UserEdit from "../pages/dashboard/users/UserEdit";
 import Profile from "../pages/dashboard/Profile";
 import ProfileEdit from "../pages/dashboard/ProfileEdit";
+import PatientsList from "../pages/dashboard/patients/PatientsList";
+import PatientPreview from "../pages/dashboard/patients/PatientPreview";
 
 Vue.use(Router);
 
@@ -76,6 +78,22 @@ const router =  new Router({
               path: ':id/edit',
               name: 'dashboard.users.edit',
               component: UserEdit
+            },
+          ]
+        },
+        {
+          path: 'patients',
+          component: RouterPath,
+          children: [
+            {
+              path: '',
+              name: 'dashboard.patients.list',
+              component: PatientsList
+            },
+            {
+              path: ':id',
+              name: 'dashboard.patients.preview',
+              component: PatientPreview
             },
           ]
         }

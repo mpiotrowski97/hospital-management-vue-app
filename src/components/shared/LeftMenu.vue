@@ -23,6 +23,11 @@
             name: 'Użytkownicy',
             route: 'dashboard.users.list',
             role: 'ROLE_ADMIN'
+          },
+          {
+            name: 'Pacjenci',
+            route: 'dashboard.patients.list',
+            role: 'ROLE_RECEPTIONIST'
           }
         ]
       }

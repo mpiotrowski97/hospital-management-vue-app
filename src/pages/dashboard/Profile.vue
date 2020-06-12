@@ -6,7 +6,6 @@
             <router-link class="btn btn-info" :to="{name: 'dashboard.profile.edit'}">Edycja</router-link>
             <user-details :user="user"/>
         </div>
-        <router-link class="btn btn-link" :to="{name: 'dashboard.users.list'}">Powrót</router-link>
     </div>
 </template>
 
@@ -29,7 +28,7 @@
       axios
         .get('user/current')
         .then(response => this.user = response.data)
-      .finally(() => this.isLoading = false)
+        .finally(() => this.isLoading = false)
     }
   }
 </script>

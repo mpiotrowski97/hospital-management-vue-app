@@ -9,7 +9,7 @@
                 </div>
                 <div class="nav navbar-nav">
                     <router-link class="nav-item nav-link" :to="{name: 'dashboard.profile'}">
-                        {{ user }}
+                        {{ user }} - profil
                     </router-link>
                     <router-link class="nav-item nav-link" :to="{name: 'dashboard.profile.edit'}">
                         Edycja profilu

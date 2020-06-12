@@ -72,6 +72,34 @@
                     </div>
                 </validation-provider>
 
+                <div class="form-group">
+                    <label for="city">Miasto</label>
+                    <input type="text" class="form-control" name="city"
+                           id="city"
+                           v-model="user.city">
+                </div>
+
+                <div class="form-group">
+                    <label for="street">Ulica</label>
+                    <input type="text" class="form-control" name="street"
+                           id="street"
+                           v-model="user.street">
+                </div>
+
+                <div class="form-group">
+                    <label for="houseNumber">Numer domu</label>
+                    <input type="text" class="form-control" name="houseNumber"
+                           id="houseNumber"
+                           v-model="user.houseNumber">
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Numer telefonu</label>
+                    <input type="text" class="form-control" name="phoneNumber"
+                           id="phoneNumber"
+                           v-model="user.phoneNumber">
+                </div>
+
                 <validation-provider v-slot="{errors}" rules="required" v-if="!isProfile">
                     <div class="form-group">
                         <label for="type">Typ</label>
