@@ -122,9 +122,17 @@
                 </div>
 
                 <div class="form-group" v-if="'patient' === user.type && !isProfile">
-                    <label for="bornAt">Data urodzenia</label>
-                    <datepicker v-model="user.bornAt" class="" id="bornAt" :language="pl" format="yyyy-MM-dd 00:00"/>
+                    <validation-provider v-slot="{errors}" rules="required">
+
+                        <label for="bornAt">Data urodzenia</label>
+                        <datepicker v-model="user.bornAt" class="" id="bornAt" :language="pl"
+                                    format="yyyy-MM-dd 00:00"/>
+                        <span class="invalid-feedback">
+                            {{ errors[0]}}
+                        </span>
+                    </validation-provider>
                 </div>
+
 
                 <div>
                     <button type="submit" class="btn btn-primary" :disabled="invalid">Zapisz</button>

@@ -28,6 +28,11 @@
             name: 'Pacjenci',
             route: 'dashboard.patients.list',
             role: 'ROLE_RECEPTIONIST'
+          },
+          {
+            name: 'Operacje',
+            route: 'dashboard.operations.list',
+            role: 'ROLE_RECEPTIONIST'
           }
         ]
       }
