@@ -163,6 +163,7 @@
           firstName: null,
           lastName: null,
           roles: null,
+          phoneNumber: null,
           type: null,
           bornAt: null,
           specialization: null

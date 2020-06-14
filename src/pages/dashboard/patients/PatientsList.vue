@@ -3,7 +3,7 @@
         <spinner v-if="isLoading"/>
         <div v-if="!isLoading">
             <div style="margin-bottom: 10px;">
-                <router-link class="btn btn-primary" :to="{name: 'dashboard.users.create'}">
+                <router-link class="btn btn-primary" :to="{name: 'dashboard.patients.create'}">
                     Dodaj pacjenta
                 </router-link>
             </div>

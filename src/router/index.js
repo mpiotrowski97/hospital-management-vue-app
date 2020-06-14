@@ -12,6 +12,7 @@ import Profile from "../pages/dashboard/Profile";
 import ProfileEdit from "../pages/dashboard/ProfileEdit";
 import PatientsList from "../pages/dashboard/patients/PatientsList";
 import PatientPreview from "../pages/dashboard/patients/PatientPreview";
+import PatientCreate from "../pages/dashboard/patients/PatientCreate";
 
 Vue.use(Router);
 
@@ -89,6 +90,11 @@ const router =  new Router({
               path: '',
               name: 'dashboard.patients.list',
               component: PatientsList
+            },
+            {
+              path: 'create',
+              name: 'dashboard.patients.create',
+              component: PatientCreate
             },
             {
               path: ':id',
