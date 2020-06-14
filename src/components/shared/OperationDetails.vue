@@ -14,6 +14,10 @@
                     <td scope="row">Date</td>
                     <td>{{ operation.scheduledFor }}</td>
                 </tr>
+                <tr>
+                    <td scope="row">Sczegóły</td>
+                    <td>{{ operation.details }}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
