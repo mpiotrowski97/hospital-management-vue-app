@@ -20,6 +20,7 @@ import DoctorOperationsList from "../pages/dashboard/doctor/DoctorOperationsList
 import DoctorOperationPreview from "../pages/dashboard/doctor/DoctorOperationPreview";
 import ChangeOperationTerm from "../pages/dashboard/doctor/ChangeOperationTerm";
 import AddDetails from "../pages/dashboard/doctor/AddDetails";
+import PatientOperationsList from "../pages/dashboard/patient/PatientOperationsList";
 
 Vue.use(Router);
 
@@ -114,6 +115,17 @@ const router =  new Router({
           path: 'operations',
           component: RouterPath,
           children: [
+            {
+              path: 'patient',
+              component: RouterPath,
+              children: [
+                {
+                  path: '',
+                  name: 'dashboard.operations.patient.list',
+                  component: PatientOperationsList
+                }
+              ]
+            },
             {
               path: 'doctor',
               component: RouterPath,

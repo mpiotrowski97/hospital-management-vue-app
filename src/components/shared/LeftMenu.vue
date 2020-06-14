@@ -4,7 +4,8 @@
                      :key="`menu-item-${item.name}`"
                      :to="{name: item.route}"
                      v-slot="{isActive, navigate}">
-            <span class="list-group-item list-group-item-action" :class="{'active':isActive}" style="cursor: pointer" @click="navigate">
+            <span class="list-group-item list-group-item-action" :class="{'active':isActive}" style="cursor: pointer"
+                  @click="navigate">
                 {{ item.name }}
             </span>
         </router-link>
@@ -38,6 +39,11 @@
             name: 'Zaplanowane operacje',
             route: 'dashboard.operations.doctor.list',
             role: 'ROLE_DOCTOR'
+          },
+          {
+            name: 'Moje operacje',
+            route: 'dashboard.operations.patient.list',
+            role: 'ROLE_PATIENT'
           }
         ]
       }
