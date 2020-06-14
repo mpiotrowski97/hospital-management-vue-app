@@ -121,7 +121,7 @@
 
         const request = {
           ...this.operation, ...{
-            scheduledFor: this.operation.scheduledFor ? moment(this.operation.scheduledFor).format('YYYY-MM-DD HH:m') : null
+            scheduledFor: this.operation.scheduledFor ? moment(this.operation.scheduledFor).format('YYYY-MM-DD HH:mm') : null
           }
         }
 

@@ -147,7 +147,7 @@
 
         const request = {
           ...this.user, ...{
-            bornAt: this.user.bornAt ? moment(this.user.bornAt).format('YYYY-MM-DD HH:m') : null
+            bornAt: this.user.bornAt ? moment(this.user.bornAt).format('YYYY-MM-DD HH:mm') : null
           }
         }
 

@@ -16,6 +16,10 @@ import PatientCreate from "../pages/dashboard/patients/PatientCreate";
 import OperationList from "../pages/dashboard/operations/OperationList";
 import OperationPreview from "../pages/dashboard/operations/OperationPreview";
 import OperationCreate from "../pages/dashboard/operations/OperationCreate";
+import DoctorOperationsList from "../pages/dashboard/doctor/DoctorOperationsList";
+import DoctorOperationPreview from "../pages/dashboard/doctor/DoctorOperationPreview";
+import ChangeOperationTerm from "../pages/dashboard/doctor/ChangeOperationTerm";
+import AddDetails from "../pages/dashboard/doctor/AddDetails";
 
 Vue.use(Router);
 
@@ -110,6 +114,32 @@ const router =  new Router({
           path: 'operations',
           component: RouterPath,
           children: [
+            {
+              path: 'doctor',
+              component: RouterPath,
+              children: [
+                {
+                  path: '',
+                  name: 'dashboard.operations.doctor.list',
+                  component: DoctorOperationsList
+                },
+                {
+                  path: ':id/change-term',
+                  name: 'dashboard.operations.doctor.change-term',
+                  component: ChangeOperationTerm
+                },
+                {
+                  path: ':id/add-details',
+                  name: 'dashboard.operations.doctor.add-details',
+                  component: AddDetails
+                },
+                {
+                  path: ':id',
+                  name: 'dashboard.operations.doctor.preview',
+                  component: DoctorOperationPreview
+                }
+              ]
+            },
             {
               path: '',
               name: 'dashboard.operations.list',

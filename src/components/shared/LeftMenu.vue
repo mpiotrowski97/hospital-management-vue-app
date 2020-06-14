@@ -33,6 +33,11 @@
             name: 'Operacje',
             route: 'dashboard.operations.list',
             role: 'ROLE_RECEPTIONIST'
+          },
+          {
+            name: 'Zaplanowane operacje',
+            route: 'dashboard.operations.doctor.list',
+            role: 'ROLE_DOCTOR'
           }
         ]
       }

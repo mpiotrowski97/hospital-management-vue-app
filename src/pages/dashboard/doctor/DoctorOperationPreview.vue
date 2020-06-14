@@ -14,7 +14,7 @@
   import OperationDetails from "../../../components/shared/OperationDetails";
 
   export default {
-    name: "OperationPreview",
+    name: "DoctorOperationPreview",
     components: {OperationDetails, Spinner},
     data() {
       return {
@@ -24,7 +24,7 @@
     },
     mounted() {
       this.isLoading = true;
-      axios.get(`/operations/${this.$route.params.id}`)
+      axios.get(`/doctor/operations/${this.$route.params.id}`)
         .then(response => this.operation = response.data)
         .finally(() => this.isLoading = false);
     }

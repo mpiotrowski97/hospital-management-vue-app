@@ -29,7 +29,7 @@
 
         const request = {
           ...user, ...{
-            bornAt: user.bornAt ? moment(user.bornAt).format('YYYY-MM-DD HH:m') : null
+            bornAt: user.bornAt ? moment(user.bornAt).format('YYYY-MM-DD HH:mm') : null
           }
         }
 
