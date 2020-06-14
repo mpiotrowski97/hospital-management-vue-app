@@ -94,11 +94,22 @@
     mounted() {
       const doctorPromise = axios
         .get('/doctors')
-        .then(response => this.doctors = response.data['_embedded']['doctorList']);
+        .then(response => {
+          if (!response.data['_embedded'] || !response.data['_embedded']['doctorList']) {
+            return;
+          }
+
+          this.doctors = response.data['_embedded']['doctorList']
+        });
 
       const patientPromise = axios
         .get('/patients')
-        .then(response => this.patients = response.data['_embedded']['patientList']);
+        .then(response => {
+          if (!response.data['_embedded'] || !response.data['_embedded']['patientList']) {
+            return;
+          }
+          this.patients = response.data['_embedded']['patientList']
+        });
 
       Promise.all([doctorPromise, patientPromise])
         .finally(() => this.isLoading = false);

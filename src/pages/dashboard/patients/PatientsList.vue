@@ -54,7 +54,12 @@
 
       axios
         .get('patients')
-        .then(response => this.patients = response.data['_embedded']['patientList'])
+        .then(response => {
+          if (!response.data['_embedded'] || !response.data['_embedded']['patientList']) {
+            return;
+          }
+          this.patients = response.data['_embedded']['patientList']
+        })
         .finally(() => this.isLoading = false);
     }
   }

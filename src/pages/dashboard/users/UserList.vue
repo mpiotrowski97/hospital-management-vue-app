@@ -75,7 +75,14 @@
       fetchUsers() {
         this.isLoading = true;
         axios.get('/users')
-          .then(response => this.users = response.data['_embedded']['userList'])
+          .then(response => {
+            if (!response.data['_embedded'] || !response.data['_embedded']['userList']) {
+              this.users = [];
+              return;
+            }
+
+            this.users = response.data['_embedded']['userList']
+          })
           .finally(() => this.isLoading = false)
       }
     }

@@ -56,7 +56,13 @@
 
       axios
         .get('operations')
-        .then(response => this.operations = response.data['_embedded']['operationList'])
+        .then(response => {
+          if (!response.data['_embedded'] || !response.data['_embedded']['operationList']) {
+            return;
+          }
+
+          this.operations = response.data['_embedded']['operationList']
+        })
         .finally(() => this.isLoading = false);
     }
   }
