@@ -78,6 +78,7 @@
         axios
           .get(url)
           .then(response => {
+            // response.data -> lista operacji
             if (!response.data['_embedded'] || !response.data['_embedded']['operationList']) {
               return;
             }
